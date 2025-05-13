@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ParentView: View {
     @Environment(\.dismiss) var dismiss
+    @State private var isSubmitted = false
     
     var body: some View {
         NavigationStack{
@@ -56,6 +57,12 @@ struct ParentView: View {
             }
             Spacer()
             
+            if isSubmitted{
+                Text("신청이 완료되었습니다.")
+                    .font(.title2)
+                    .foregroundStyle(.red)
+            }
+            
             Rectangle()
                 .foregroundStyle(.black)
                 .frame(height: 4)
@@ -67,7 +74,7 @@ struct ParentView: View {
     var bottombar: some View{
         VStack(alignment: .center) {
             HStack(spacing: 20){
-                NavigationLink(destination: ParentInfoView()){
+                NavigationLink(destination: ParentInfoView(isSubmitted: $isSubmitted)){
                     ZStack{
                         RoundedRectangle(cornerRadius: 8)
                             .strokeBorder(.black, lineWidth: 2)

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ParentInfoView: View {
     @Environment(\.dismiss) var dismiss
+    @Binding var isSubmitted: Bool
     
     var body: some View {
         VStack{
@@ -104,6 +105,8 @@ struct ParentInfoView: View {
         VStack{
             Button{
                 print("제출")
+                isSubmitted = true
+                print(isSubmitted)
                 dismiss()
             }label:{
                 ZStack{
@@ -123,5 +126,5 @@ struct ParentInfoView: View {
 }
 
 #Preview {
-    ParentInfoView()
+    ParentInfoView(isSubmitted: .constant(false))
 }
