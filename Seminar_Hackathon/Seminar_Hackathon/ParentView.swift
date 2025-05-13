@@ -84,6 +84,7 @@ struct ParentView: View {
                             .tint(.black)
                     }
                 }
+                .disabled(isSubmitted)
                 
                 Button{
                     
