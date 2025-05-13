@@ -11,16 +11,18 @@ struct ParentView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        VStack{
-            topbar
-            
-            Spacer()
-            
-            mainView
-            
-            bottombar
+        NavigationStack{
+            VStack{
+                topbar
+                
+                Spacer()
+                
+                mainView
+                
+                bottombar
+            }
+            .navigationBarHidden(true)
         }
-        .navigationBarHidden(true)
     }
     
     var topbar: some View{
@@ -65,9 +67,7 @@ struct ParentView: View {
     var bottombar: some View{
         VStack(alignment: .center) {
             HStack(spacing: 20){
-                Button{
-                    
-                }label:{
+                NavigationLink(destination: ParentInfoView()){
                     ZStack{
                         RoundedRectangle(cornerRadius: 8)
                             .strokeBorder(.black, lineWidth: 2)
