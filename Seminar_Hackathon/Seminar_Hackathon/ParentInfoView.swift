@@ -104,6 +104,7 @@ struct ParentInfoView: View {
         VStack{
             Button{
                 print("제출")
+                dismiss()
             }label:{
                 ZStack{
                     RoundedRectangle(cornerRadius: 8)
