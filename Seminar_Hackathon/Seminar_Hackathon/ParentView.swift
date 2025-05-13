@@ -17,6 +17,8 @@ struct ParentView: View {
             Spacer()
             
             mainView
+            
+            bottombar
         }
         .navigationBarHidden(true)
     }
@@ -42,12 +44,55 @@ struct ParentView: View {
     
     var mainView: some View{
         VStack{
-            HStack{
+            HStack(alignment: .top){
                 Image("ProductImage")
-                
-                Image("ProductInfo")
+                VStack{
+                    Image("ProductInfo")
+                    Text("일자리 사진 및 정보")
+                        .padding()
+                }
             }
-            .border(.black)
+            Spacer()
+            
+            Rectangle()
+                .foregroundStyle(.black)
+                .frame(height: 4)
+                .padding(.horizontal)
+        }
+        .padding(.top, 80)
+    }
+    
+    var bottombar: some View{
+        VStack(alignment: .center) {
+            HStack(spacing: 20){
+                Button{
+                    
+                }label:{
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 8)
+                            .strokeBorder(.black, lineWidth: 2)
+                            .frame(width: 160, height: 52)
+                        Text("신청")
+                            .font(.title3)
+                            .tint(.black)
+                    }
+                }
+                
+                Button{
+                    
+                }label:{
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 8)
+                            .strokeBorder(.black, lineWidth: 2)
+                            .fill(.black)
+                            .frame(width: 160, height: 52)
+                        Text("저장")
+                            .font(.title3)
+                            .tint(.white)
+                    }
+                }
+            }
+            .padding(.vertical, 80)
         }
     }
 }
